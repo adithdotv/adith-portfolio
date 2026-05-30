@@ -27,6 +27,12 @@ export const stats = [
   { value: "1+", label: "Years Industry Experience" },
 ];
 
+export const exploring = [
+  "AI agents",
+  "Web3 infrastructure",
+  "scalable backend systems",
+];
+
 export const skillGroups = [
   {
     title: "Frontend",
