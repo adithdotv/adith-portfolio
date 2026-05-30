@@ -2,7 +2,7 @@ export const profile = {
   name: "Adith V",
   role: "Full-Stack Developer",
   tagline:
-    "I design and build fast, accessible, and delightful web experiences from idea to production.",
+     "Building modern full-stack applications with React, Node.js, and Web3 technologies.",
   location: "Kannur, Kerala, India",
   email: "adithv137@gmail.com",
   socials: {
