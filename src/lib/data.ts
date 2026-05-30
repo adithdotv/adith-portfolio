@@ -78,6 +78,7 @@ export type Project = {
   link: string;
   repo: string;
   accent: string;
+  image: string;
 };
 
 export const projects: Project[] = [
@@ -89,6 +90,7 @@ export const projects: Project[] = [
     link: "#",
     repo: "https://github.com/adithdotv/FairLance",
     accent: "from-violet-500 to-fuchsia-500",
+    image: "/projects/fairlance.webp",
   },
   {
     title: "ZEITGEIST 2026 - College IT Fest Platform",
@@ -98,6 +100,7 @@ export const projects: Project[] = [
     link: "https://zeitgeistkuc.in/",
     repo: "https://github.com/Anugrxh/IT-Fest-Backend",
     accent: "from-cyan-500 to-blue-500",
+    image: "/projects/zeitgeist.webp",
   },
   {
     title: "Campus Arts Fest Website",
@@ -107,6 +110,7 @@ export const projects: Project[] = [
     link: "https://kuc-sagavazhvu-2025.web.app/",
     repo: "https://github.com/adithdotv/KUC-Kalolsavam-Result",
     accent: "from-emerald-500 to-teal-500",
+    image: "/projects/campus-fest.webp",
   },
   {
     title: "PaySphere Decentralized Global Payroll",
@@ -116,6 +120,7 @@ export const projects: Project[] = [
     link: "https://pay-sphere-nine.vercel.app/",
     repo: "https://github.com/adithdotv/PaySphere",
     accent: "from-amber-500 to-orange-500",
+    image: "/projects/paysphere.webp",
   },
 ];
 
