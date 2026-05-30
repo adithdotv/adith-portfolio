@@ -22,9 +22,9 @@ export const navLinks = [
 ];
 
 export const stats = [
-  { value: "3+", label: "Years experience" },
-  { value: "10+", label: "Projects shipped" },
-  { value: "5+", label: "Happy clients" },
+  { value: "10+", label: "Projects Built" },
+  { value: "3+", label: "Hackathons Participated" },
+  { value: "1+", label: "Years Industry Experience" },
 ];
 
 export const skillGroups = [
