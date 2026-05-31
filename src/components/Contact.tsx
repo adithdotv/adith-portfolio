@@ -5,18 +5,54 @@ import { profile } from "@/lib/data";
 import { ArrowIcon } from "./icons";
 import Reveal from "./Reveal";
 
+
 type Status = "idle" | "sending" | "sent";
 
 export default function Contact() {
   const [status, setStatus] = useState<Status>("idle");
+  const [result, setResult] = useState<string>("");
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    if (status === "sending") return;
-    setStatus("sending");
-    // Simulated submit — wire this to an API route or form service.
-    window.setTimeout(() => setStatus("sent"), 900);
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  e.preventDefault();
+
+  if (status === "sending") return;
+
+  setStatus("sending");
+  setResult("Sending...");
+
+  try {
+    const formData = new FormData(e.currentTarget);
+
+    formData.append(
+      "access_key",
+      process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? ""
+    );
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (!response.ok || !data.success) {
+      throw new Error(data.message || "Failed to send message.");
+    }
+
+    setResult("Message sent successfully.");
+
+    setTimeout(() => {
+      setStatus("sent");
+    }, 900);
+  } catch (error) {
+    setStatus("idle");
+    setResult(
+      error instanceof Error
+        ? error.message
+        : "Something went wrong. Please try again."
+    );
   }
+}
 
   return (
     <section
@@ -101,7 +137,7 @@ export default function Contact() {
                   name="name"
                   type="text"
                   required
-                  placeholder="Jane Doe"
+                  placeholder="Your name"
                   className={inputClass}
                 />
               </Field>
@@ -111,7 +147,7 @@ export default function Contact() {
                   name="email"
                   type="email"
                   required
-                  placeholder="jane@example.com"
+                  placeholder="your.email@example.com"
                   className={inputClass}
                 />
               </Field>
